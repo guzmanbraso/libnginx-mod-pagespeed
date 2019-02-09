@@ -18,7 +18,7 @@ DCH Dockerfile usage (always use stretch as it is replaced before build) :
 ```bash
 docker build -t deb-dch -f Dockerfile-deb-dch .
 docker run -it -v $PWD:/local -e HOME=/local deb-dch bash -c 'cd /local && \
-dch -M -v 1.13.35.2+nginx-1.14.1-1~stretch --distribution "stretch" "Updated upstream."'
+dch -M -b -v 1.13.35.2+nginx-1.14.1-1~stretch --distribution "stretch" "Updated upstream."'
 ```
 
 Build Dockerfile usage :
