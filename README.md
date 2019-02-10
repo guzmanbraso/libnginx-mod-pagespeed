@@ -13,7 +13,7 @@ https://packagecloud.io/DaryL/libnginx-mod-pagespeed-mainline
 
 If you want to build packages by yourself, this is for you :
 
-DCH Dockerfile usage (always use stretch as it is replaced before build) :
+DCH Dockerfile usage for nginx latest version (always use stretch as it is replaced before build) :
 
 ```bash
 docker build -t deb-dch -f Dockerfile-deb-dch .
@@ -21,7 +21,23 @@ docker run -it -v $PWD:/local -e HOME=/local deb-dch bash -c 'cd /local && \
 dch -M -v 1.13.35.2+nginx-1.14.2-1~stretch --distribution "stretch" "Updated upstream."'
 ```
 
-Build Dockerfile usage :
+DCH Dockerfile usage for stretch-backports version (always use stretch as it is replaced before build) :
+
+```bash
+docker build -t deb-dch -f Dockerfile-deb-dch .
+docker run -it -v $PWD:/local -e HOME=/local deb-dch bash -c 'cd /local && \
+dch -M -b -v 1.13.35.2+nginx-1.14.1-1~stretch --distribution "stretch" "Updated upstream."'
+```
+
+Build Dockerfile usage for stretch with Nginx from Nginx repo:
+
+```bash
+docker build -t build-nginx-pagespeed -f Dockerfile-deb \
+--build-arg DISTRIB=debian --build-arg RELEASE=stretch \
+--build-arg NGINX_VERSION=1.14.2 --build-arg NPS_VERSION=1.13.35.2 .
+```
+
+Build Dockerfile usage for stretch with Nginx from stretch-backports repo:
 
 ```bash
 docker build -t build-nginx-pagespeed -f Dockerfile-deb \

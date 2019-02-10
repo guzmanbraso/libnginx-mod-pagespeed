@@ -14,7 +14,7 @@
 ARG DISTRIB=debian
 ARG RELEASE=stretch
 
-FROM debian:stretch
+FROM debian:stretch-backports
 MAINTAINER Cyril Aknine "caknine@clever-age.com"
 
 ENV TZ=Europe/Paris

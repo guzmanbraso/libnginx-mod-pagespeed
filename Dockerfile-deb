@@ -1,6 +1,12 @@
 # Dockerfile for building libnginx-mod-pagespeed for Debian / Ubuntu
 #
-# Usage :
+# Usage for stretch with Nginx from Nginx repo:
+#
+#   docker build -t build-nginx-pagespeed -f Dockerfile-deb \
+#       --build-arg DISTRIB=debian --build-arg RELEASE=stretch \
+#       --build-arg NGINX_VERSION=1.14.2 --build-arg NPS_VERSION=1.13.35.2 .
+#
+# Usage for stretch with Nginx from stretch-backports repo:
 #
 #   docker build -t build-nginx-pagespeed -f Dockerfile-deb \
 #       --build-arg DISTRIB=debian --build-arg RELEASE=stretch \
